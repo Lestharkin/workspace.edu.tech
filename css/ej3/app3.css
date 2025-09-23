@@ -1,0 +1,13 @@
+table {
+  width: 100%;
+}
+
+th,
+td {
+  border: 1px solid black;
+  padding: 8px;
+  text-align: left;
+}
+#especial {
+  background-color: yellow;
+}

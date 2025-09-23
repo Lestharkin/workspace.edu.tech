@@ -1,0 +1,13 @@
+table {
+  width: 100%;
+}
+
+th,
+td {
+  border: 1px solid rgb(203, 24, 24);
+  padding: 2px;
+  text-align: center;
+}
+#especial {
+  background-color: rgb(53, 205, 29);
+}
