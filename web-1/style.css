@@ -1,0 +1,24 @@
+header {
+  background-color: #464d70;
+  color: white;
+  padding: 20px;
+  border-radius: 5px;
+}
+header h1 {
+  margin: 0;
+  font-size: 3em;
+}
+
+footer {
+  background-color: #464d70;
+  color: white;
+  text-align: center;
+  padding: 10px;
+  border-radius: 5px;
+  margin-top: 20px;
+}
+
+footer h4 {
+  margin: 0;
+  font-size: 1.5em;
+}
