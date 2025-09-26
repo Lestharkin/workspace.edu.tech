@@ -1,7 +1,7 @@
 header {
   background-color: #464d70;
   color: white;
-  padding: 20px;
+  padding: 30px;
   border-radius: 5px;
 }
 header h1 {
@@ -21,4 +21,10 @@ footer {
 footer h4 {
   margin: 0;
   font-size: 1.5em;
+}
+
+body {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
 }
