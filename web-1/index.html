@@ -15,7 +15,7 @@
   </header>
 
   <main>
-    <div>
+    <div class="container">
       <form action="" method="post">
         <div class="form-group">
           <label for="nombre">Nombre:</label>
@@ -31,6 +31,66 @@
           <label for="email">Email:</label>
           <input type="email" id="email" name="email" required>
         </div>
+
+        <div>
+          <h4>Estado civil:</h4>
+          <label for="estado">Soltero</label>
+          <input type="radio" id="estado" name="estado" value="soltero" required>
+
+          <label for="estado">Casado</label>
+          <input type="radio" id="estado" name="estado" value="casado" required>
+        </div>
+
+        <div>
+          <h4>Deportes:</h4>
+          <label for="deporte1">Fútbol</label>
+          <input type="checkbox" id="deporte1" name="deporte1" value="futbol" required>
+
+          <label for="deporte2">Baloncesto</label>
+          <input type="checkbox" id="deporte2" name="deporte2" value="baloncesto" required>
+
+          <label for="deporte3">Tenis</label>
+          <input type="checkbox" id="deporte3" name="deporte3" value="tenis" required>
+        </div>
+
+        <div>
+          <label for="grado-estudios">Grado de estudios:</label>
+          <select id="grado-estudios" name="grado-estudios" required size="4" multiple>
+            <option value="" disabled selected>Seleccione una opción</option>
+            <option value="primaria">Primaria</option>
+            <option value="secundaria">Secundaria</option>
+            <option value="preparatoria">Preparatoria</option>
+            <option value="universidad">Universidad</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="comentarios">Navegador favorito:</label>
+          <input list="browsers" name="browser" id="browser" required>
+          <datalist id="browsers">
+            <option value="Edge">
+            <option value="Firefox">
+            <option value="Chrome">
+            <option value="Opera">
+            <option value="Safari">
+          </datalist>
+        </div>
+
+        <div class="form-group">
+          <label for="fechanacimiento">Fecha de nacimiento:</label>
+          <input type="date" id="fechanacimiento" name="fechanacimiento" required>
+        </div>
+
+        <div class="form-group">
+          <label for="archivo">Subir archivo:</label>
+          <input type="file" id="archivo" name="archivo" required>
+        </div>
+
+        <div class="form-group">
+          <label for="happy">Que tan feliz eres:</label>
+          <input type="range" id="happy" name="happy" value="0" min="0" max="100" required>
+        </div>
+
 
       </form>
     </div>

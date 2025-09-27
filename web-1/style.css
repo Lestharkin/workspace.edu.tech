@@ -37,11 +37,24 @@ main {
   padding: 7px;
 }
 
-.form-group input {
+.form-group input,
+.form-group select {
+  display: block;
   width: 100%;
-  padding: 10px;
+  padding: 10px 5px 10px 5px;
   margin-top: 5px;
   border: 1px solid #ccc;
   border-radius: 4px;
-  box-sizing: border-box;
+}
+.form-group label {
+  display: block;
+}
+
+.container {
+  width: 90%;
+  margin: 0 auto;
+}
+
+#happy {
+  background-color: green;
 }
