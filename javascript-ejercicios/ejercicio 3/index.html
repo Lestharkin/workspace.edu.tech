@@ -14,14 +14,22 @@
 
   <div class="container w-75">
     <div class="mb-3">
-      <label for="in" class="form-label">Pares</label>
-      <input type="text" class="form-control" id="in" name="in">
+      <label for="in" class="form-label">Numero:</label>
+      <input type="text" class="form-control" id="in" name="in" placeholder="Ingrese un numero">
     </div>
     <div class="mb-3 text-end">
-      <button type="button" class="btn btn-danger" id="btn">Danger</button>
+      <button type="button" class="btn btn-danger" id="btn">Tabla de Multiplicar</button>
     </div>
     <div class="mb-3">
-      <span id="out"></span>
+      <table class="table">
+        <thead>
+          <tr>
+            <th colspan="5">Tabla de Multiplicar</th>
+          </tr>
+        </thead>
+        <tbody id="tbody">
+        </tbody>
+      </table>
     </div>
   </div>
 
