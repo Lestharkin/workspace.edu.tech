@@ -37,3 +37,23 @@ btn.addEventListener('click', function () {
     tbody.innerHTML += pintarFilaTablaMultiplicar(Number(val), i)
   }
 })
+
+
+const cajita = document.querySelector('#cajita')
+const btnColor = document.querySelector('#btn-color')
+
+const colores = [
+  'red',
+  'blue',
+  'green',
+  'yellow',
+  'purple',
+  'pink',
+  'orange'
+]
+
+btnColor.addEventListener('click', function () {
+  const indiceAleatorio = Math.floor(Math.random() * colores.length)
+  const colorAleatorio = colores[indiceAleatorio]
+  cajita.style.backgroundColor = colorAleatorio
+})
