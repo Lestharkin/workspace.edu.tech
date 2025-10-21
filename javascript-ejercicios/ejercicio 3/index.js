@@ -12,7 +12,7 @@ function pares (num) {
   return resultados
 }
 
-btn.addEventListener('click', () => {
+btn.addEventListener('click', function () {
   const val = inp.value
   const res = pares(Number(val))
   out.innerText = res
