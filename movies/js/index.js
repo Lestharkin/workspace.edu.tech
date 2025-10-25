@@ -1,6 +1,6 @@
-import { loadMovies, getStoredMovies } from './movie-storage.js'
+import { initStorage, getStoredMovies } from './movie-storage.js'
 
 (async () => {
-  await loadMovies()
+  await initStorage()
   console.log(getStoredMovies())
 })()

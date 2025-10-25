@@ -26,4 +26,21 @@ const getStoredMovies = () => {
   return moviesStorage
 }
 
-export { loadMovies, getStoredMovies }
+const saveMovies = () => {
+  localStorage.setItem('moviesStorage', JSON.stringify(moviesStorage))
+}
+
+const readMovies = () => {
+  moviesStorage = JSON.parse(localStorage.getItem('moviesStorage'))
+}
+
+const initStorage = async () => {
+  readMovies()
+  if (moviesStorage === null) {
+    await loadMovies()
+    saveMovies()
+  }
+}
+
+
+export { initStorage, getStoredMovies }
