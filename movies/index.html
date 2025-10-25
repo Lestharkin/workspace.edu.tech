@@ -7,16 +7,17 @@
   <title>Star Wars Movies</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+  <link rel="stylesheet" href="css/index.css">
 </head>
 
 <body>
 
-  <header class="text-bg-primary p-4">
-    <div class="row">
-      <div class="col">
+  <header class="text-bg-primary p-4 shadow">
+    <div class="row ">
+      <div class="col-sm">
         <h1>Star Wars Movies</h1>
       </div>
-      <div class="col">
+      <div class="col-sm">
         <div class="row g-3 align-items-center justify-content-end">
           <div class="col-auto">
             <input type="search" class="form-control" id="search" placeholder="Buscar...">
@@ -35,9 +36,33 @@
   </header>
 
 
-  <main>
+  <main class="m-2 border border-1 rounded rounded-2 shadow p-3">
     <section>
-      <movie></movie>
+      <movie>
+        <div class="row">
+          <div class="col-sm-12">
+            <h2>Star Wars: Episode IV - A New Hope</h2>
+            <h5>Fecha de estreno: May 25, 1977</h5>
+            <p>Luke Skywalker joins forces with a Jedi Knight, a cocky pilot, a Wookiee and two droids to save the
+              galaxy from the Empire's world-destroying battle station, while also attempting to rescue Princess Leia
+              from the mysterious Darth Vader.</p>
+            <ul>
+              <li>Director: George Lucas</li>
+              <li>Productor: Gary Kurtz, Rick McCallum</li>
+            </ul>
+            <h3>Personajes</h3>
+            <ul class="list-group list-group-flush">
+              <li class="list-group-item">Luke Skywalker</li>
+              <li class="list-group-item">Princess Leia</li>
+              <li class="list-group-item">Han Solo</li>
+              <li class="list-group-item">Darth Vader</li>
+              <li class="list-group-item">Obi-Wan Kenobi</li>
+              <li class="list-group-item">R2-D2</li>
+              <li class="list-group-item">C-3PO</li>
+            </ul>
+          </div>
+        </div>
+      </movie>
     </section>
   </main>
 
