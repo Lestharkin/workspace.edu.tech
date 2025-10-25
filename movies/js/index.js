@@ -1,4 +1,4 @@
-const movie = document.querySelector('movie')
+const movies = document.querySelector('movies')
 
 const movieTemplate = movie => `
 <div class="col-sm-12">
@@ -23,22 +23,25 @@ const movieTemplate = movie => `
 
 const getMovies = () => {
   const response = fetch('https://swapi.info/api/films')
-
   response.then(res => {
     const resultado = res.json()
-
-
     resultado.then(data => {
-      console.log(data)
+      for (const movie of data) {
+        movies.innerHTML += movieTemplate(movie)
+      }
     }).catch(err => {
       console.log(err)
     })
-
-
   }).catch(err => {
     console.log(err)
   })
 
+}
+
+const getCharacterName = async (characterUrl) => {
+  const response = await fetch(characterUrl)
+  const data = await response.json()
+  return data.name
 }
 
 getMovies()
