@@ -1,11 +1,11 @@
-import { getMovies } from './movie-fetch.js'
+import { getMovies, getCharacterName } from './movie-fetch.js'
 
 let moviesStorage = []
 
 const loadMovies = async () => {
   const movies = await getMovies()
   const movies2 = movies.map(async movie => {
-    const characterNames = movie.characters.map(async url => {
+    const characterNames = await movie.characters.map(async url => {
       const name = await getCharacterName(url)
       return name
     })
@@ -21,3 +21,9 @@ const loadMovies = async () => {
   })
   moviesStorage = await Promise.all(movies2)
 }
+
+const getStoredMovies = () => {
+  return moviesStorage
+}
+
+export { loadMovies, getStoredMovies }
