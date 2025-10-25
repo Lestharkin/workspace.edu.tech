@@ -1,20 +1,8 @@
-import { getMovieTemplate } from './movie-template.js'
+const FILMS_URL = 'https://swapi.info/api/films'
 
-const getMovies = () => {
-  const movies = document.querySelector('movies')
-  const response = fetch('https://swapi.info/api/films')
-  response.then(res => {
-    const resultado = res.json()
-    resultado.then(async data => {
-      for (const movie of data) {
-        movies.innerHTML += await getMovieTemplate(movie)
-      }
-    }).catch(err => {
-      console.log(err)
-    })
-  }).catch(err => {
-    console.log(err)
-  })
+const getMovies = async () => {
+  const response = await fetch(FILMS_URL)
+  return await response.json()
 }
 
 const getCharacterName = async (characterUrl) => {
