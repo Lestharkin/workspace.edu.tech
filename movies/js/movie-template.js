@@ -21,4 +21,26 @@ const charactersTemplate = async (characterNames) => {
   return listItems
 }
 
-export { getMovieTemplate }
+const paginationBtnTemplate = (prevIndex, nextIndex, render) => {
+  const div = document.createElement('div')
+  div.classList.add('d-flex', 'justify-content-between', 'my-4')
+  const btnNext = document.createElement('button')
+  btnNext.classList.add('btn', 'btn-primary')
+  const btnPrev = document.createElement('button')
+  btnPrev.classList.add('btn', 'btn-primary')
+  btnNext.innerHTML = 'Siguiente'
+  btnPrev.innerHTML = 'Anterior'
+  btnNext.addEventListener('click', () => {
+    nextIndex()
+    render()
+  })
+  btnPrev.addEventListener('click', () => {
+    prevIndex()
+    render()
+  })
+  div.appendChild(btnPrev)
+  div.appendChild(btnNext)
+  return div
+}
+
+export { getMovieTemplate, paginationBtnTemplate }

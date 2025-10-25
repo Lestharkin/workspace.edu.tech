@@ -1,6 +1,7 @@
 import { getMovies, getCharacterName } from './movie-fetch.js'
 
 let moviesStorage = []
+let index = 0
 
 const loadMovies = async () => {
   const movies = await getMovies()
@@ -21,6 +22,16 @@ const loadMovies = async () => {
   })
   moviesStorage = await Promise.all(movies2)
 }
+
+const nextIndex = () => {
+  index = index < moviesStorage.length - 1 ? index + 1 : index
+}
+
+const prevIndex = () => {
+  index = index > 0 ? index - 1 : index
+}
+
+const getIndex = () => index
 
 const getStoredMovies = () => {
   return moviesStorage
@@ -43,4 +54,4 @@ const initStorage = async () => {
 }
 
 
-export { initStorage, getStoredMovies }
+export { initStorage, getStoredMovies, prevIndex, nextIndex, getIndex }
