@@ -1,5 +1,3 @@
-import { getCharacterName } from './movie-fetch.js'
-
 const getMovieTemplate = async (movie) => `
 <div class="col-sm-12">
   <h2>Star Wars: ${movie.title}</h2>
@@ -15,10 +13,9 @@ const getMovieTemplate = async (movie) => `
   </ul>
 </div>`
 
-const charactersTemplate = async (characters) => {
+const charactersTemplate = async (characterNames) => {
   let listItems = ''
-  for (const character of characters) {
-    const characterName = await getCharacterName(character)
+  for (const characterName of characterNames) {
     listItems += `<li class="list-group-item">${characterName}</li>`
   }
   return listItems
