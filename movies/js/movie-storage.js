@@ -1,10 +1,8 @@
 import { getMovies, getCharacterName } from './movie-fetch.js'
 
 let moviesStorage = []
-let moviesStorage2 = []
+let repoDate = new Date("2000")
 let index = 0
-
-const updateDate = () => { }
 
 const loadMovies = async () => {
   const movies = await getMovies()
@@ -41,19 +39,34 @@ const getStoredMovies = () => {
 }
 
 const saveMovies = () => {
-  localStorage.setItem('moviesStorage', {
-    date: new Date().toISOString(),
-    data: JSON.stringify(moviesStorage)
-  })
+  localStorage.setItem('moviesStorage', JSON.stringify({
+    repoDate: Date.now(),
+    moviesStorage: moviesStorage
+  }))
 }
 
 const readMovies = () => {
-  moviesStorage = JSON.parse(localStorage.getItem('moviesStorage'))
+  const data = JSON.parse(localStorage.getItem('moviesStorage'))
+  if (data) {
+    repoDate = new Date(data.repoDate)
+    moviesStorage = data.moviesStorage
+    return
+  }
+  repoDate = new Date("2000")
+  moviesStorage = null
 }
 
 const initStorage = async () => {
   readMovies()
   if (moviesStorage === null) {
+    await loadMovies()
+    saveMovies()
+    return
+  }
+
+  const repoDatePlus24Hours = new Date(repoDate).getTime() + (24 * 60 * 60 * 1000)
+
+  if (repoDatePlus24Hours < Date.now()) {
     await loadMovies()
     saveMovies()
   }
