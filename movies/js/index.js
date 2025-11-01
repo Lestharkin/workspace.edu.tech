@@ -1,5 +1,5 @@
 import { initStorage, getStoredMovies, prevIndex, nextIndex, getIndex, searchMovies } from './movie-storage.js'
-import { getMovieTemplate, paginationBtnTemplate } from './movie-template.js'
+import { getMovieTemplate, paginationBtnTemplate, msgTemplate } from './movie-template.js'
 
 const moviesHTML = document.querySelector('movies')
 const searchBtn = document.querySelector('#search-btn')
@@ -7,11 +7,17 @@ const searchBtn = document.querySelector('#search-btn')
 searchBtn.addEventListener('click', () => {
   const input = document.querySelector('#search')
   searchMovies(input.value)
+  render()
 })
 
 const render = async () => {
   moviesHTML.innerHTML = ''
   const movies = getStoredMovies()
+  console.log('Results:', movies)
+  if (movies.length === 0) {
+    moviesHTML.innerHTML = msgTemplate('No se encontraron películas que coincidan con la búsqueda.')
+    return
+  }
   const buttons = paginationBtnTemplate(prevIndex, nextIndex, render)
   moviesHTML.innerHTML = await getMovieTemplate(movies[getIndex()])
   moviesHTML.appendChild(buttons)

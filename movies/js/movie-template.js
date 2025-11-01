@@ -13,6 +13,10 @@ const getMovieTemplate = async (movie) => `
   </ul>
 </div>`
 
+const msgTemplate = (message) => `<div class="col-sm-12">
+  <h4 class="alert alert-danger">${message}</h4>
+</div>`
+
 const charactersTemplate = async (characterNames) => {
   let listItems = ''
   for (const characterName of characterNames) {
@@ -43,4 +47,4 @@ const paginationBtnTemplate = (prevIndex, nextIndex, render) => {
   return div
 }
 
-export { getMovieTemplate, paginationBtnTemplate }
+export { getMovieTemplate, paginationBtnTemplate, msgTemplate }

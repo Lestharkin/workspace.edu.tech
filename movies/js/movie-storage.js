@@ -1,7 +1,10 @@
 import { getMovies, getCharacterName } from './movie-fetch.js'
 
 let moviesStorage = []
+let moviesStorage2 = []
 let index = 0
+
+const updateDate = () => { }
 
 const loadMovies = async () => {
   const movies = await getMovies()
@@ -38,7 +41,10 @@ const getStoredMovies = () => {
 }
 
 const saveMovies = () => {
-  localStorage.setItem('moviesStorage', JSON.stringify(moviesStorage))
+  localStorage.setItem('moviesStorage', {
+    date: new Date().toISOString(),
+    data: JSON.stringify(moviesStorage)
+  })
 }
 
 const readMovies = () => {
@@ -55,13 +61,15 @@ const initStorage = async () => {
 
 const searchMovies = (query) => {
   query = String(query).trim()
+  readMovies()
   console.log('Searching for:', query)
   const results = moviesStorage.filter(movie =>
     movie.title.toLowerCase().includes(query.toLowerCase()) ||
     movie.opening_crawl.toLowerCase().includes(query.toLowerCase()) ||
     movie.release_date.toLowerCase().includes(query.toLowerCase())
   )
-  console.log('Search results for "', query, '":', results)
+  moviesStorage = results ?? []
+  index = 0
 }
 
 
