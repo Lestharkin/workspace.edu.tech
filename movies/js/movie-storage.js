@@ -24,11 +24,11 @@ const loadMovies = async () => {
 }
 
 const nextIndex = () => {
-  index = index < moviesStorage.length - 1 ? index + 1 : index
+  index = index < moviesStorage.length - 1 ? index + 1 : 0
 }
 
 const prevIndex = () => {
-  index = index > 0 ? index - 1 : index
+  index = index > 0 ? index - 1 : moviesStorage.length - 1
 }
 
 const getIndex = () => index
