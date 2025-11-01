@@ -1,7 +1,13 @@
-import { initStorage, getStoredMovies, prevIndex, nextIndex, getIndex } from './movie-storage.js'
+import { initStorage, getStoredMovies, prevIndex, nextIndex, getIndex, searchMovies } from './movie-storage.js'
 import { getMovieTemplate, paginationBtnTemplate } from './movie-template.js'
 
 const moviesHTML = document.querySelector('movies')
+const searchBtn = document.querySelector('#search-btn')
+
+searchBtn.addEventListener('click', () => {
+  const input = document.querySelector('#search')
+  searchMovies(input.value)
+})
 
 const render = async () => {
   moviesHTML.innerHTML = ''

@@ -53,5 +53,16 @@ const initStorage = async () => {
   }
 }
 
+const searchMovies = (query) => {
+  query = String(query).trim()
+  console.log('Searching for:', query)
+  const results = moviesStorage.filter(movie =>
+    movie.title.toLowerCase().includes(query.toLowerCase()) ||
+    movie.opening_crawl.toLowerCase().includes(query.toLowerCase()) ||
+    movie.release_date.toLowerCase().includes(query.toLowerCase())
+  )
+  console.log('Search results for "', query, '":', results)
+}
 
-export { initStorage, getStoredMovies, prevIndex, nextIndex, getIndex }
+
+export { initStorage, getStoredMovies, prevIndex, nextIndex, getIndex, searchMovies }
