@@ -9,5 +9,6 @@ class Menu:
     if self.menu_items:    
       for item in self.menu_items:
         print(f'{item.id}. {item.description}')
+    print('---------------------')
 
 
