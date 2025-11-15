@@ -1,11 +1,23 @@
 from Menu import Menu
 from MenuItem import MenuItem
 import os
+import random
 
 class App:
   def __init__(self):
     self.choice = '0'
-    
+    self.word = [
+      'python', 'java', 'kotlin', 'javascript', 'hangman', 'programming', 'development', 'challenge', 'function', 'variable'
+    ]
+  
+  def get_word(self):
+    return random.choice(self.word)
+  
+  def display_word(self, word):
+    for _ in word:
+      print('_', end=' ')
+    print()
+
   def msn_continue(self): 
     input('Presione Enter para continuar...')
 
@@ -25,6 +37,7 @@ class App:
         match self.choice:
           case '1':
             self.menu.display_menu_item(1)
+            self.display_word(self.get_word())
             self.msn_continue()
           case '2':
             self.menu.display_menu_item(2)
