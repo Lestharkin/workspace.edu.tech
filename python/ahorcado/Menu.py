@@ -10,6 +10,8 @@ class Menu:
         print(f'{item.id}. {item.description}')
     print('---------------------')
 
+  def display_menu_item(self, id):
+    print(next((f'{item.id}. {item.description}' for item in self.menu_items if item.id == id), None))
 
   def get_choice(self):
     choice = input('Seleccione una opción: ')
