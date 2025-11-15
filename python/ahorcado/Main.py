@@ -13,19 +13,24 @@ class App:
           MenuItem(3, 'Salir')
       ])
       
-      self.clear_screen()
-      self.menu.display()
-      self.choice = self.menu.get_choice()
-      self.clear_screen()
-      match self.choice:
-        case '1':
-          self.menu.display_menu_item(1)
-        case '2':
-          self.menu.display_menu_item(2)
-        case '3':
-          self.menu.display_menu_item(3)
-        case _:
-          print('Opción no válida')
+      while self.choice != '3':
+        self.clear_screen()
+        self.menu.display()
+        self.choice = self.menu.get_choice()
+        self.clear_screen()
+        match self.choice:
+          case '1':
+            self.menu.display_menu_item(1)
+            input('Presione Enter para continuar...')
+          case '2':
+            self.menu.display_menu_item(2)
+            input('Presione Enter para continuar...')
+          case '3':
+            self.menu.display_menu_item(3)
+            input('Presione Enter para continuar...')
+          case _:
+            print('Opción no válida')
+            input('Presione Enter para continuar...')
   
   def clear_screen(self):
       os.system('clear')
