@@ -5,6 +5,10 @@ import os
 class App:
   def __init__(self):
     self.choice = '0'
+    
+  def msn_continue(self): 
+    input('Presione Enter para continuar...')
+
   def main(self):
       self.menu = Menu(
         title='Menú Ahorcado', menu_items=[
@@ -21,16 +25,16 @@ class App:
         match self.choice:
           case '1':
             self.menu.display_menu_item(1)
-            input('Presione Enter para continuar...')
+            self.msn_continue()
           case '2':
             self.menu.display_menu_item(2)
-            input('Presione Enter para continuar...')
+            self.msn_continue()
           case '3':
             self.menu.display_menu_item(3)
-            input('Presione Enter para continuar...')
+            self.msn_continue()
           case _:
             print('Opción no válida')
-            input('Presione Enter para continuar...')
+            self.msn_continue()
   
   def clear_screen(self):
       os.system('clear')
