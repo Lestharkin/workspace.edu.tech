@@ -3,7 +3,6 @@ class Menu:
     self.title = title
     self.menu_items = menu_items
 
-
   def display(self):
     print(f'--- {self.title} ---')
     if self.menu_items:    
@@ -12,3 +11,6 @@ class Menu:
     print('---------------------')
 
 
+  def get_choice(self):
+    choice = input('Seleccione una opción: ')
+    return choice
